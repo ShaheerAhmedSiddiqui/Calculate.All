@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/all.min.css">
     <title>Final Grade Calculator</title>
     <style>
         * {
@@ -25,6 +26,7 @@
             justify-content: space-between;
             padding: 0rem 5rem;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .icon {
@@ -37,10 +39,19 @@
             height: 60px;
         }
 
+        .toggle i {
+            font-size: 40px;
+            color: white;
+            display: none;
+        }
+
+        .menu {
+            text-align: right;
+        }
+
         .menu ul {
             list-style: none;
             display: flex;
-            padding: 0rem 3rem;
             margin: 0px;
         }
 
@@ -49,7 +60,6 @@
             text-decoration: none;
             padding: 0px 25px;
             font-size: 15px;
-            font-family: sans-serif;
             margin: 0;
         }
         .head {
@@ -161,6 +171,110 @@
             color: navy;
             text-align: center;
         }
+        @media screen and (max-width: 992px) {
+            .menu {
+                display: none;
+
+            }
+
+            .toggle i {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+                flex-basis: 100%;
+                flex-grow: 1;
+                padding: 15px 0px;
+            }
+
+            .menu ul {
+                list-style: none;
+                display: inline;
+                margin: 0px;
+                text-align: left;
+                padding: 0;
+            }
+
+            .menu ul li {
+                margin-bottom: 3px;
+            }
+
+            .menu ul li a {
+                color: white;
+                text-decoration: none;
+                padding: 0px;
+                font-size: 15px;
+                margin: 0;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .header {
+                padding: 0rem 1rem;
+            }
+
+            .container {
+                width: 285px;
+                max-width: 100%;
+                height: auto;
+                min-height: 100px;
+                margin: 2rem auto;
+                background-color: #eee;
+                border-radius: 5px;
+            }
+
+            .block {
+                display: block;
+                padding: 0px 20px;
+                float: none;
+            }
+            .base{
+                text-align: center;
+            }
+            input[type=button] {
+                margin: 3rem 2.7rem;
+            }
+
+            #result {
+                margin: 10px;
+                margin-top: 0px;
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+            .header {
+                padding: 0rem 1rem;
+            }
+
+            .container {
+                width: 285px;
+                max-width: 100%;
+                height: auto;
+                min-height: 100px;
+                margin: 2rem auto;
+                background-color: #eee;
+                border-radius: 5px;
+            }
+
+            .block {
+                display: block;
+                padding: 0px 20px;
+                float: none;
+            }
+            .base{
+                text-align: center;
+            }
+            input[type=button] {
+                margin: 3rem 2.7rem;
+            }
+
+            #result {
+                margin: 10px;
+                margin-top: 0px;
+            }
+
+        }
         </style>
 
 </head>
@@ -169,10 +283,13 @@
         <div class="icon">
             <img src="./img/Calculator.All.png" alt="">
         </div>
-        <div class="menu">
+        <div class="toggle">
+            <i class="fa-solid fa-bars" id="bar" onclick="toggle()"></i>
+        </div>
+        <div class="menu" id="menuItems">
             <ul>
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./aboutUs.html">About</a></li>
+                <li><a href="#">About Us</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Features</a></li>
             </ul>
@@ -214,5 +331,15 @@
     console.log(result)
     document.getElementById("result").innerHTML = "You need  "+ result +"% on the final exam to get "+ gradeWant +"% in the class";
    }
+   function toggle() {
+        var toggle = document.getElementById("bar");
+        var menuItems = document.getElementById("menuItems");
+        if (menuItems.style.display === "none") {
+            menuItems.style.display = "block";
+        } else {
+            menuItems.style.display = "none";
+        }
+
+    }
 </script>
 </html>
