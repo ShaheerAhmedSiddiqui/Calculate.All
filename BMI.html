@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .header {
+            background-color: #1037d0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0rem 5rem;
+            align-items: center;
+        }
+
+        .icon {
+            width: 250px;
+        }
+
+        .icon img {
+            width: 100%;
+            max-width: 200px;
+            height: 60px;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            padding: 0rem 3rem;
+            margin: 0px;
+        }
+
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0px 25px;
+            font-size: 15px;
+            font-family: sans-serif;
+            margin: 0;
+        }
+        .head {
+            background-color: #1037d0;
+            padding: 12px 0px;
+            font-family: sans-serif;
+            font-weight: normal;
+        }
+
+        .head h1 {
+            margin: 0 auto;
+            text-align: center;
+            color: #eee;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fff;
+            font-size: 15px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            width: 520px;
+            height: auto;
+            min-height: 100px;
+            margin: 80px auto;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+
+        .base {
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+            display: block;
+            float: none;
+        }
+
+        .base h4 {
+            font-size: 26px;
+            text-align: center;
+            font-family: sans-serif;
+            font-weight: normal;
+            margin-top: 0px;
+            box-shadow: 0px 2px #bababa;
+            background: white;
+            font-size: 34px;
+            color: #eee;
+            background-color: #1037d0;
+        }
+
+        .cal_inp {
+            display: flex;
+            justify-content: center;
+        }
+
+        .block {
+            padding: 5px 20px;
+            /* display: inline-block; */
+        }
+
+        .title {
+            font-size: 20px;
+            text-align: left;
+            font-family: sans-serif;
+            font-weight: normal;
+            line-height: 0.5;
+            letter-spacing: 0.5px;
+            word-spacing: 2.7px;
+            color: #1073d0;
+        }
+
+        input[type=number] {
+            width: 140px;
+            margin: auto;
+            outline: none;
+            min-height: 50px;
+            border: 2px solid #1073d0;
+            padding: 12px;
+            background-color: #f7f7f7;
+            border-radius: 2px;
+            color: #1073d0;
+            font-size: 17px;
+        }
+
+        input[type=number]:focus {
+            background-color: #ffffff;
+            border: 2px solid orange;
+            outline: none;
+        }
+
+        input[type=button] {
+            width: 150px;
+            margin-left: 35%;
+            margin-top: 40px;
+            outline: none;
+            border: none;
+            border-radius: 2px;
+            background-color: #0761b6;
+            color: #ffffff;
+            padding: 14px 16px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        input[type=button]:hover {
+            background-color: #003669;
+        }
+
+        #bmiResult {
+            display: block;
+            margin: 10px;
+            margin-top: 35px;
+            padding: 10px;
+            padding-bottom: 20px;
+            overflow: hidden;
+            font-family: verdana;
+            font-size: 23px;
+            font-weight: normal;
+            line-height: 1.5;
+            word-spacing: 2.7px;
+            color: navy;
+            text-align: center;
+        }
+
+        .aboutBmi {
+            margin: 60px;
+        }
+
+        .aboutBmi h1 {
+            margin: 0;
+        }
+
+        .aboutBmi p {
+            padding: 0rem 12rem 0rem 0rem;
+            line-height: 20px;
+            word-spacing: 1px;
+            font-family: sans-serif;
+            font-size: 17px;
+        }
+
+        .note {
+            margin: 60px;
+        }
+
+        .note p {
+            padding: 0rem 12rem 0rem 0rem;
+            line-height: 20px;
+            word-spacing: 1px;
+            font-family: sans-serif;
+            font-size: 17px;
+        }
+
+        .note span {
+            font-weight: 900;
+        }
+
+        .bmiFormulaText {
+            margin: 60px;
+        }
+
+        .bmiFormulaText p {
+            padding: 0rem 12rem 0rem 0rem;
+            line-height: 20px;
+            word-spacing: 1px;
+            font-family: sans-serif;
+            font-size: 17px;
+        }
+
+        .tableBmi {
+            text-align: -webkit-center;
+            margin: 4rem 0rem;
+        }
+
+        .firstTr {
+            background-color: #1073d0;
+        }
+
+        .firstTd {
+            padding: 7px 25px;
+            color: white;
+            font-family: sans-serif;
+            font-size: 17px;
+        }
+
+        .tableTd {
+            padding: 7px 25px;
+            font-family: sans-serif;
+            font-size: 17px;
+        }
+
+        .tableTr:nth-child(odd) {
+            background-color: #eee;
+        }
+
+        .bmiFormula {
+            margin: 60px 250px;
+        }
+        .formula1{
+            margin-bottom: 40px;
+        }
+        .formula1 h3{
+            margin: 0;
+        }
+        .formula2 h3{
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="icon">
+            <img src="./img/Calculator.All.png" alt="">
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./aboutUs.html">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Features</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="base">
+            <h4>BMI Calculator</h4>
+        </div>
+        <div class="cal_inp">
+            <div class="block">
+                <p class="title">Weight</p>
+                <input type="number" name="date" id="weight" placeholder="In Kg" required="required" />
+            </div>
+            <div class="block">
+                <p class="title">Height</p>
+                <input type="number" name="month" id="height" placeholder="In Meter" required="required" />
+            </div>
+        </div>
+        <div class="base">
+            <input type="button" name="submit" value="Submit" onclick="bmi()" />
+        </div>
+        <div id="bmiResult"></div>
+    </div>
+    <div class="aboutBmi">
+        <h1>Body mass index - BMI</h1>
+        <p>BMI, formerly called the Quetelet index, is a measure for indicating nutritional status in adults. It is
+            defined as a person’s weight in kilograms divided by the square of the person’s height in metres (kg/m2) for
+            both men and women. For example, an adult who weighs 60 kg and whose height is 1.80 m will have a BMI of
+            18.22 .</p>
+    </div>
+    <div class="note">
+        <p> <span>Note</span>. BMI is derived from a person’s weight in kilograms, divided by height (squared) in
+            metres. The recommended levels are adapted from the global WHO recommendation of 18.5–24.9 as a normal BMI.
+        </p>
+    </div>
+    <div class="tableBmi">
+        <table border="1px solid black" cellpadding="5" cellspacing="0">
+            <tbody>
+                <tr class="firstTr">
+                    <td class="firstTd">BMI</td>
+                    <td class="firstTd">Classification</td>
+                </tr>
+                <tr class="tableTr">
+                    <td class="tableTd">Below 18.5</td>
+                    <td class="tableTd">Under Weight</td>
+                </tr>
+
+                <tr class="tableTr">
+
+                    <td class="tableTd">18.5–24.9</td>
+                    <td class="tableTd">Normal weight</td>
+                </tr>
+
+                <tr class="tableTr">
+                    <td class="tableTd">25.0–29.9</td>
+                    <td class="tableTd">Over Weight</td>
+                </tr>
+
+                <tr class="tableTr">
+                    <td class="tableTd">30.0–34.9</td>
+                    <td class="tableTd">Obesity class I</td>
+                </tr>
+
+                <tr class="tableTr">
+                    <td class="tableTd">35.0–39.9</td>
+                    <td class="tableTd">Obesity class II</td>
+                </tr>
+
+                <tr class="tableTr">
+                    <td class="tableTd">Above 40</td>
+                    <td class="tableTd">Obesity class III</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="bmiFormulaText">
+        <h1>BMI formula</h1>
+        <p>Below are the equations used for calculating BMI in the International System of Units (SI) and the US
+            customary system (USC) using a 5'10", 160-pound individual as an example:</p>
+    </div>
+    <div class="bmiFormula">
+        <div class="formula1">
+            <h3>SI Units:</h3>
+            <table cellspacing="0" cellpadding="0" style="padding-left: 20px;">
+                <tbody>
+                    <tr>
+                        <td> BMI =&nbsp;</td>
+                        <td colspan="2">
+                            <table cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>mass (kg)</td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#000000" height="1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>height<sup>2</sup> (m)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td align="right">&nbsp;=&nbsp;</td>
+                        <td colspan="2">
+                            <table cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>72.57</td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#000000" height="1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1.78<sup>2</sup></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td align="right">&nbsp;=&nbsp;</td>
+                        <td>22.90</td>
+                        <td>
+                            <table cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>kg</td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#000000" height="1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>m<sup>2</sup></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="formula2">
+            <h3>USC Units:</h3>
+            <table cellspacing="0" cellpadding="0" style="padding-left: 20px;">
+                <tbody>
+                    <tr>
+                        <td> BMI = 703 ×&nbsp;</td>
+                        <td>
+                            <table cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>mass (lbs)</td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#000000" height="1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>height<sup>2</sup> (in)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td align="right">= 703 ×&nbsp;</td>
+                        <td>
+                            <table cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>160</td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#000000" height="1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>70<sup>2</sup></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td align="right">= 22.96&nbsp;</td>
+                        <td>
+                            <table cellspacing="0" cellpadding="0">
+                                <tbody>
+                                    <tr>
+                                        <td>kg</td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#000000" height="1"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>m<sup>2</sup></td>
+                                    </tr>
+                                </tbody>
+                            </table>        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    function bmi() {
+        var wieght = document.getElementById("weight").value;
+        var hieght = document.getElementById("height").value;
+
+        var pwieght = parseFloat(wieght);
+        console.log(pwieght);
+
+        var phieght = parseFloat(hieght).toFixed(3);
+        console.log(phieght, typeof (phieght));
+
+        var firstResult = parseFloat(pwieght / phieght);
+        console.log(firstResult, typeof (firstResult));
+
+
+        var finalResult = parseFloat(firstResult / phieght).toFixed(2);
+        console.log(finalResult);
+
+        var check = document.getElementById('bmiResult').innerHTML = "Your BMI is   " + finalResult;
+    }
+</script>
+
+</html>

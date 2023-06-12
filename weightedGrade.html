@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <title>Weight Grade Calcualtor</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .head {
+            background-color: #1073d0;
+            padding: 12px 0px;
+            font-family: sans-serif;
+            font-weight: normal;
+        }
+
+        .head h1 {
+            margin: 0 auto;
+            text-align: center;
+            color: #eee;
+        }
+
+        .container {
+            width: 620px;
+            height: auto;
+            min-height: 100px;
+            margin: 80px auto;
+            background-color: #eee;
+            border-radius: 5px;
+            padding: 30px;
+        }
+
+        input[type=text] {
+            margin: auto;
+            outline: none;
+            min-height: 50px;
+            border: 2px solid #1073d0;
+            padding: 12px;
+            background-color: #f7f7f7;
+            border-radius: 2px;
+            color: #1073d0;
+            font-size: 17px;
+            margin: 5px;
+        }
+
+        input[type=text]:focus {
+            background-color: #ffffff;
+            border: 2px solid orange;
+            outline: none;
+        }
+
+        input[type=number] {
+            width: 140px;
+            margin: auto;
+            outline: none;
+            min-height: 50px;
+            border: 2px solid #1073d0;
+            padding: 12px;
+            background-color: #f7f7f7;
+            border-radius: 2px;
+            color: #1073d0;
+            font-size: 17px;
+            margin: 5px;
+        }
+
+        input[type=number]:focus {
+            background-color: #ffffff;
+            border: 2px solid orange;
+            outline: none;
+        }
+
+        .tableH {
+            margin: 0;
+            font-family: sans-serif;
+            font-weight: 800;
+        }
+
+        table {
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: left;
+            margin-bottom: 25px;
+        }
+
+        .buttons button {
+            margin: 5px 10px;
+            padding: 5px 15px;
+            font-size: 17px;
+            font-family: sans-serif;
+            border: 2px solid #1073d0;
+        }
+
+        .buttons button:focus {
+            background-color: #1073d0;
+            border: 2px solid orange;
+            outline: none;
+            color: #ffffff;
+        }
+
+        .calBtn {
+            text-align: center;
+        }
+
+        .calBtn button {
+            color: white;
+            background-color: #1073d0;
+            padding: 10px 25px;
+            font-size: 18px;
+            border: none;
+            font-family: sans-serif;
+        }
+
+        .calBtn button:focus {
+            border: 2px solid orange;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="weightGrade">
+        <div class="head">
+            <h1>Weight Grade Calculator</h1>
+        </div>
+        <div class="container">
+            <table class="wgc" id="table">
+                <thead>
+                    <tr>
+                        <th class="tableH">Assignment/Exam Name</th>
+                        <th class="tableH">Grade(%)</th>
+                        <th class="tableH">Weight(%)</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="ex: English" class="wgc1">
+                        </td>
+                        <td>
+                            <input id="grade_1" type="number" class="wgc1 gradeCal">
+                        </td>
+                        <td>
+                            <input id="weight_1" type="number" class="wgc1 weightCal ">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="ex: Math" class="wgc1">
+                        </td>
+                        <td>
+                            <input id="grade_2" type="number" class="wgc1 gradeCal">
+                        </td>
+                        <td>
+                            <input id="weight_2" type="number" class="wgc1 weightCal">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" placeholder="ex: Physics" class="wgc1">
+                        </td>
+                        <td>
+                            <input id="grade_3" type="number" class="wgc1 gradeCal">
+                        </td>
+                        <td>
+                            <input id="weight_3" type="number" class="wgc1 weightCal">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="buttons">
+                <button type="button" onclick="reset()">Reset</button>
+                <button type="button" onclick="addRow()">Add row</button>
+            </div>
+            <div class="calBtn">
+                <button onclick="calculateWG()">Calculate Weight Grade</button>
+            </div>
+            <div>
+                <h1 id="result"></h1>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function addRow() {
+        var grade = 4;
+        var weight = 4;
+        var table = document.getElementById("table");
+        $('#table').append("<tr> <td><input type='text' placeholder='ex: ' class='wgc1'></td>  <td><input id='grade_" + grade + "' type='number' class='wgc1 gradeCal'></td>  <td><input id='weight_" + weight + "' type='number' class='wgc1 weightCal'></td> </tr>")
+        grade + 1;
+        weight + 1;
+    };
+    function reset() {
+        var x = document.querySelectorAll(".wgc1");
+        console.log(x);
+        for (var i = 0; i < x.length; i++) {
+            x[i].value = "";
+        }
+    };
+
+    function calculateWG() {
+        var rowCount = document.getElementById('tbody').rows.length;
+        console.log(rowCount);
+        var res;
+        for (var rows = 1; rows <= rowCount; rows++) {
+            var gradeCal = document.getElementById("grade_" + rows).value;
+            var weightCal = document.getElementById("weight_" + rows).value;
+            console.log(gradeCal);
+            console.log(weightCal);
+            var result = ((parseInt(gradeCal)*parseInt(weightCal)) + (parseInt(gradeCal)*parseInt(weightCal)));
+            // res += result[rows];
+            var result1 = ((parseInt(weightCal)) + (parseInt(weightCal)));
+            var fResult = + (parseInt(result) / parseInt(result1));
+            console.log(result);
+            // console.log(result1);
+            // console.log(fResult);
+        }
+    }
+
+
+
+</script>
+<script src="./jquery.js"></script>
+
+</html>

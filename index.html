@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <title>Calculate.All</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Finlandica&family=Lato:wght@700&family=Montserrat&family=Signika:wght@500&display=swap');
+
+        * {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .header {
+            background-color: #1037d0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0rem 5rem;
+            align-items: center;
+        }
+
+        .icon {
+            width: 250px;
+        }
+
+        .toggle i {
+            font-size: 40px;
+            color: white;
+            display: none;
+        }
+
+        .icon img {
+            width: 100%;
+            max-width: 200px;
+            height: 60px;
+        }
+
+        .menu {
+            text-align: right;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            margin: 0px;
+        }
+
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 0px 25px;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .headBanner {
+            background: url(./img/all.jpg) no-repeat;
+            background-size: cover;
+            padding: 13rem 0rem;
+        }
+
+        .headText {
+            color: white;
+            text-align: center;
+        }
+
+        .headText h1 {
+            font-size: 50px;
+        }
+
+        .headText p {
+            font-size: 20px;
+        }
+
+        .tools {
+            padding: 5rem 23rem;
+            font-family: cursive;
+        }
+
+        .tools h1 {
+            margin-bottom: 20px;
+            font-size: 38px;
+        }
+
+        .tools ul {
+            padding: 0;
+            list-style: decimal;
+        }
+
+        .tools ul li {
+            margin-bottom: 10px;
+        }
+
+        .tools ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: 700;
+        }
+
+        .footer {
+            background-color: #1037d0;
+
+            /* display: flex;
+            justify-content: space-between;
+            align-items: normal; */
+        }
+
+        /* .f-icons {
+            width: 33.33%;
+        } */
+
+        .footer-p {
+            /* width: 33.33%; */
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: white;
+            line-height: 24px;
+        }
+
+        .socia-icons {
+            /* width: 33.33%; */
+        }
+
+        .s-icons i {
+            font-size: 31px;
+            /* padding: 10px 11px 5px 1px; */
+            color: white;
+        }
+
+        /* //responsive */
+        @media screen and (max-width: 992px) {
+            .menu {
+                display: none;
+
+            }
+
+            .header {
+                flex-wrap: wrap;
+            }
+
+            .toggle i {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+                flex-basis: 100%;
+                flex-grow: 1;
+                padding: 15px 0px;
+            }
+
+            .menu ul {
+                list-style: none;
+                display: inline;
+                margin: 0px;
+                text-align: left;
+                padding: 0;
+            }
+
+            .menu ul li a {
+                color: white;
+                text-decoration: none;
+                padding: -1px 25px;
+                font-size: 15px;
+                margin: 0;
+            }
+
+            .tools {
+                padding: 5rem 10rem;
+                font-family: cursive;
+            }
+
+        }
+
+        @media screen and (max-width: 767px) {
+            .header {
+                padding: 0rem 1rem;
+            }
+
+            .headBanner {
+                padding: 6rem 0rem;
+            }
+
+            .headText h1 {
+                font-size: 20px;
+            }
+
+            .headText p {
+                font-size: 16px;
+                line-height: 20px;
+            }
+
+            .tools {
+                padding: 5rem;
+            }
+
+            .f-icons {
+                margin-bottom: 1rem;
+            }
+
+            .footer-p {
+                margin-bottom: 1rem;
+            }
+
+            .social-icons {
+                margin-bottom: 1rem;
+            }
+
+        }
+
+        @media screen and (max-width: 450px) {
+            .header {
+                padding: 0rem 1.5rem;
+            }
+
+            .headBanner {
+                padding: 2.5rem 0rem;
+            }
+
+            .headText h1 {
+                font-size: 20px;
+            }
+
+            .headText p {
+                font-size: 16px;
+                line-height: 20px;
+            }
+
+            .tools {
+                padding: 2rem;
+            }
+
+            .tools h1 {
+                font-size: 24px;
+            }
+
+            .tools ul li a {
+                margin-bottom: 10px;
+                font-size: 15px;
+            }
+            .f-row{
+                padding: 2rem 1rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="template">
+        <div class="header">
+            <div class="icon">
+                <img src="./img/Calculator.All.png" alt="">
+            </div>
+            <div class="toggle">
+                <i class="fa-solid fa-bars" id="bar" onclick="toggle()"></i>
+            </div>
+            <div class="menu" id="menuItems">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="./aboutUs.html">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Features</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="backBanner">
+            <div class="headBanner">
+                <div class="headText">
+                    <h1>All About For Calculator.All</h1>
+                    <p>Here we have the Latest & best Calculator Tools.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="tools">
+                <h1>We have a Number of Tools</h1>
+                <ul>
+                    <li><a href="./AgeCalculator.html">Age Calculator</a></li>
+                    <li><a href="./BMI.html">Body Mass Index</a></li>
+                    <li><a href="./FinalGrade.html">Final Grade Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container-fluid">
+                <div class="row p-5 f-row">
+                    <div class="col-md-4">
+                        <div class="f-icons">
+                            <img src="./img/Calculator.All.png" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="footer-p text-start">
+                            <p class="text-white m-0">Calculator.All has a unique tools website. It has many tool for
+                                calculate your wishes and we also
+                                doing sime work for add more tools for you. Keep join us for your career.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="social-icons text-start">
+                            <p class="m-0 text-white">You can also update on our below accounts.</p>
+                            <div class="s-icons text-white fs-2">
+                                <i class="fa-brands fa-square-facebook"></i>
+                                <i class="fa-brands fa-square-instagram"></i>
+                                <i class="fa-brands fa-square-twitter"></i>
+                                <i class="fa-brands fa-linkedin"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+<script>
+    function toggle() {
+        var toggle = document.getElementById("bar");
+
+        var menuItems = document.getElementById("menuItems");
+        if (menuItems.style.display === "none") {
+            menuItems.style.display = "block";
+        } else {
+            menuItems.style.display = "none";
+        }
+    }
+</script>
+
+</html>
