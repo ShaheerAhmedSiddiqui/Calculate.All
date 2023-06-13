@@ -216,7 +216,10 @@
             var weightCal = document.getElementById("weight_" + rows).value;
             console.log(gradeCal);
             console.log(weightCal);
-            var result = ((parseInt(gradeCal)*parseInt(weightCal)) + (parseInt(gradeCal)*parseInt(weightCal)));
+            var result = ((parseInt(gradeCal)*parseInt(weightCal)));
+            for (let result = 0; result >1; result++) {
+                console.log(result);
+            }
             // res += result[rows];
             var result1 = ((parseInt(weightCal)) + (parseInt(weightCal)));
             var fResult = + (parseInt(result) / parseInt(result1));
@@ -225,9 +228,6 @@
             // console.log(fResult);
         }
     }
-
-
-
 </script>
 <script src="./jquery.js"></script>
 

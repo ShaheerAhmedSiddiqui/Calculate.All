@@ -99,9 +99,11 @@
                 text-align: left;
                 padding: 0;
             }
-            .menu ul li{
+
+            .menu ul li {
                 margin-bottom: 3px;
             }
+
             .menu ul li a {
                 color: white;
                 text-decoration: none;
@@ -122,6 +124,7 @@
                 font-size: 1rem;
             }
         }
+
         @media screen and (max-width: 767px) {
             .header {
                 padding: 0rem 1rem;
@@ -175,12 +178,15 @@
                 font-size: 16px;
                 line-height: 20px;
             }
-            .content{
+
+            .content {
                 padding: 0rem !important;
             }
-            .cont-img{
+
+            .cont-img {
                 padding: 0rem !important;
             }
+
             .tool {
                 padding: 0rem !important;
             }
@@ -193,7 +199,8 @@
                 margin-bottom: 10px;
                 font-size: 15px;
             }
-            .f-row{
+
+            .f-row {
                 padding: 2rem 1rem !important;
             }
         }
@@ -237,15 +244,55 @@
                 <div class="row py-5 tool">
                     <div class="col-md-4 px-5 my-3 agc">
                         <h1 class="text-center text-dark fw-bold fs-4">Age Calculator</h1>
-                        <img src="./img/AgC.png" class="img-fluid" alt="">
+                        <img src="./img/AgC.png" class="img-fluid"  data-bs-toggle="modal"
+                        data-bs-target="#ageCal" alt="">
+
+                        <!-- Button trigger modal -->
+                        <!-- Modal -->
+                    <div class="modal fade" id="ageCal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header p-0 d-block">
+                                <img src="../Calculate.All/img/AgC.png" class="img-fluid w-100" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     </div>
                     <div class="col-md-4 px-5 my-3 bmi">
                         <h1 class="text-center text-dark fw-bold fs-4">Body Mass Index</h1>
-                        <img src="./img/WGC.png" class="img-fluid" alt="">
+                        <img src="./img/WGC.png" class="img-fluid" data-bs-toggle="modal"
+                        data-bs-target="#bmiCal" alt="">
+                           <!-- Button trigger modal -->
+                        <!-- Modal -->
+                    <div class="modal fade" id="bmiCal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header p-0 d-block">
+                                <img src="../Calculate.All/img/WGC.png" class="img-fluid w-100" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     </div>
                     <div class="col-md-4 px-5 my-3 fgc">
                         <h1 class="text-center text-dark fw-bold fs-4">Final Grade Calculator</h1>
-                        <img src="./img/FGC.png" class="img-fluid" alt="">
+                        <img src="./img/FGC.png" class="img-fluid"  data-bs-toggle="modal"
+                        data-bs-target="#fgc" alt="">
+                                <!-- Button trigger modal -->
+                        <!-- Modal -->
+                    <div class="modal fade" id="fgc" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header p-0 d-block">
+                                <img src="../Calculate.All/img/FGC.png" class="img-fluid w-100" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     </div>
                 </div>
             </div>
@@ -254,47 +301,63 @@
                     <h1 class="text-center text-dark fw-bold  mb-4 lato-font">Up Comming Tool</h1>
                     <div class="px-5">
                         <h1 class="text-center text-dark fw-bold fs-4">Weight Grade Calculator</h1>
-                        <img src="./img/upcooming-WGC.png" class="img-fluid" alt="">
+                        <img src="./img/upcooming-WGC.png" class="img-fluid" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" alt="">
                     </div>
+
+
+                    <!-- Button trigger modal -->
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header p-0 d-block">
+                                    <img src="../Calculate.All/img/upcooming-WGC.png" class="img-fluid w-100" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
-        <div class="footer">
-            <div class="container-fluid">
-                <div class="row p-5 f-row">
-                    <div class="col-md-4 ">
-                        <div class="f-icons">
-                            <img src="./img/Calculator.All.png" alt="">
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row p-5 f-row">
+                        <div class="col-md-4 ">
+                            <div class="f-icons">
+                                <img src="./img/Calculator.All.png" alt="">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <div class="footer-p text-start">
-                            <p class="text-white m-0">Calculator.All has a unique tools website. It has many tool for
-                                calculate your wishes and we also
-                                doing sime work for add more tools for you. Keep join us for your career.</p>
+                        <div class="col-md-4 text-center">
+                            <div class="footer-p text-start">
+                                <p class="text-white m-0">Calculator.All has a unique tools website. It has many tool
+                                    for
+                                    calculate your wishes and we also
+                                    doing sime work for add more tools for you. Keep join us for your career.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <div class="social-icons text-start">
-                            <p class="m-0 text-white">You can also update on our below accounts.</p>
-                            <div class="s-icons text-white fs-2">
-                                <i class="fa-brands fa-square-facebook"></i>
-                                <i class="fa-brands fa-square-instagram"></i>
-                                <i class="fa-brands fa-square-twitter"></i>
-                                <i class="fa-brands fa-linkedin"></i>
+                        <div class="col-md-4 text-center">
+                            <div class="social-icons text-start">
+                                <p class="m-0 text-white">You can also update on our below accounts.</p>
+                                <div class="s-icons text-white fs-2">
+                                    <i class="fa-brands fa-square-facebook"></i>
+                                    <i class="fa-brands fa-square-instagram"></i>
+                                    <i class="fa-brands fa-square-twitter"></i>
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
 <script>
-    function toggle(){
+    function toggle() {
         var toggle = document.getElementById("bar");
         var menuItems = document.getElementById("menuItems");
         if (menuItems.style.display === "none") {
@@ -302,7 +365,8 @@
         } else {
             menuItems.style.display = "none";
         }
-    
+
     }
 </script>
+
 </html>
