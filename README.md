@@ -21,7 +21,7 @@ Calculate.All is a simple and user-friendly web application that provides multip
 
 .JavaScript – Core logic, calculations, and dynamic interactions
 
-#Future Improvements
+# Future Improvements
 
 .Add the weighted grade calculator
 
